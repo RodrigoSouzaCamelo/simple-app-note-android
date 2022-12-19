@@ -49,14 +49,14 @@ fun HomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(54.dp)
-                        .clickable {
-                            noteSelected.value = note
-                            popupState.value = PopupState.Edit
-                        }
                         .pointerInput(Unit) {
                             detectTapGestures(
                                 onLongPress = {
                                     homeViewModel.deleteNote(note)
+                                },
+                                onTap = {
+                                    noteSelected.value = note
+                                    popupState.value = PopupState.Edit
                                 }
                             )
                         }
